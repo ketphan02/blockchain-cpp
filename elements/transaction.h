@@ -48,6 +48,13 @@ class Transactions
 
         bool isValid()
         {
-            if (fromAddress == "sys_hash") return true;
+            FILE *f;
+            string sys_hash;
+
+            f = freopen("../variables/SYSTEM_HASH.txt", "r", stdin);
+            cin >> sys_hash;
+            fclose(f);
+
+            if (fromAddress == sys_hash) return true;
         }
 };
