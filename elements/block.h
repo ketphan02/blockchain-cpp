@@ -17,6 +17,8 @@ class Block
 
         string trans_string = "";
 
+        string standard_0 = "";
+
     public:
         int key;
         string time, prevHash, curHash;
@@ -41,5 +43,27 @@ class Block
             hash_str = time + trans_string + prevHash + to_string(key);
             picosha2::hash256_hex_string(hash_str, hex_str);
             return hex_str;
+        }
+
+        void mineBlock(int diff)
+        {
+            for (int i = 0; i < diff; ++ i) standard_0 += '0';
+
+            while (curHash != standard_0)
+            {
+                ++key;
+                curHash = hashFunc();
+            }
+
+            cout << curHash << '\n';
+        }
+
+        bool hasValidTransactions()
+        {
+            for (int i = 0; i < int(transactions.size()); ++ i)
+            {
+                if (!transactions[i].isValid()) return false;
+            }
+            return true;
         }
 };

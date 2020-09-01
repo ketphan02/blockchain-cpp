@@ -44,4 +44,9 @@ class Transactions
             
             return data;
         }
+
+        bool isValid()
+        {
+            if (fromAddress == NULL) return true;
+        }
 };
