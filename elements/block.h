@@ -20,7 +20,7 @@ class Block
         string standard_0 = "";
 
     public:
-        int key;
+        long long key;
         string time, prevHash, curHash;
         vector<Transactions> transactions;
 
@@ -45,7 +45,7 @@ class Block
             return hex_str;
         }
 
-        void mineBlock(int diff)
+        void mineBlock(long long diff)
         {
             for (int i = 0; i < diff; ++ i) standard_0 += '0';
 

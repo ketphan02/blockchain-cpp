@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <string>
+
 #include "../libs/picosha2.h"
 
 using namespace std;
@@ -47,6 +48,6 @@ class Transactions
 
         bool isValid()
         {
-            if (fromAddress == NULL) return true;
+            if (fromAddress == "sys_hash") return true;
         }
 };
